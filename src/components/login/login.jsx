@@ -1,6 +1,8 @@
 import React from 'react'
 import './login.css'
-
+import {MdEmail} from 'react-icons/md'
+import {Link} from 'react-router-dom'
+import {RiLockPasswordFill} from 'react-icons/ri'
 
 
 function Login() {
@@ -17,37 +19,42 @@ function Login() {
 
 
             <form className="login" >
-                <h2 className="sign-in-h2">Sign-In to the G2F-Connect platform</h2>
 
-                <input
-                type="text"
-                value={id}
-                placeholder="Id"
-                onChange={(e) => setId(e.target.value)}
-                required
-                />
+                <h2 className="sign-in-h2">Sign-In to Sisi Voters</h2>
 
-                <input
-                type="password"
-                value={password}
-                placeholder="Password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                />
+                <div className="name">
 
-                <button className="sign-in-btn" disabled={isFetching}>
-                {isFetching ? "Loading..." : "Submit"}
-                </button>
+                    <MdEmail/>
 
-                <p style={{ color: "red" }}>
-                {error ? "something went wrong" : null  }
-                </p>
+                     <input
+                        type="email"
+                        placeholder="Enter your email"
+                        required
+                    />
 
+                </div>
+
+                <div className="name">  
+
+                    <RiLockPasswordFill/>
+
+                    <input
+                    type="password"
+                    placeholder=" Enter your Password"
+                    required
+                    />
+
+                </div>
+
+                <Link to ='/dashboard'><button className="sign-in-btn"> Submit</button></Link>
+
+               
                 <p className="sign-in-p">
                 Don't have an account?
+                
                 <strong>
-                    <Link to="/register" className="alaccount">
-                    Register
+                    <Link to="/" className="alaccount">
+                     Register
                     </Link>
                 </strong>
                 </p>
