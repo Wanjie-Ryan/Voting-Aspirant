@@ -70,7 +70,7 @@ function Navbar() {
 
                         <p>
 
-                            <Link to="" className="home">
+                            <Link to="/" className="home">
                             Aspirant
                             </Link>
 

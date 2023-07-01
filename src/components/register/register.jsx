@@ -1,20 +1,18 @@
 import React from 'react'
+import './register.css'
 
 
 
-
-function App() {
+function Register() {
 
 
   return (
 
 
+
     <>
 
 
-      
-    
-    
     
     
     
@@ -22,7 +20,9 @@ function App() {
 
 
 
+
+
   )
 }
 
-export default App
+export default Register
