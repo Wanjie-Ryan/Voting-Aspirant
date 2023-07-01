@@ -12,11 +12,12 @@
   }
   
   .register {
+
     width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100%;
+    height: 100vh;
     /* // margin:auto;
     // background-color: brown; */
   }
@@ -40,7 +41,7 @@
   }
   
   .sec-p .sign-in {
-    color: dodgerblue;
+    color: purple;
     font-weight: 600;
     font-size: 14px;
     /* // text-shadow: 2px 2px 4px rgba(73, 130, 204, 0.5); */
@@ -53,14 +54,14 @@
   }
   
   .sign-in {
-    color: dodgerblue;
+    color: purple;
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
     /* // text-shadow: 2px 2px 4px rgba(73, 130, 204, 0.5); */
   }
   
-  input {
+  input,select {
     width: 230px;
     padding: 8px;
     border: 1px solid black;
@@ -69,7 +70,7 @@
   
     &:focus {
       outline: none;
-      border-color: dodgerblue;
+      border-color: purple;
     }
   }
   
@@ -86,7 +87,7 @@
     width: 230px;
     margin-top: 20px;
     padding: 10px 16px;
-    background-color: dodgerblue;
+    background-color: purple;
     color: white;
     border: none;
     border-radius: 3px;
@@ -94,7 +95,7 @@
     transition: background-color 0.3s ease-in-out;
   
     &:hover {
-      background-color: deepskyblue;
+      background-color: violet;
     }
   }
   
@@ -117,16 +118,18 @@
   .inner-reg {
     display: flex;
     flex-direction: column;
-    background-color: dodgerblue;
+    background-color: purple;
     height: 100%;
     justify-content: center;
     align-items: center;
   }
   
   .img-farmer-reg {
-    width: 500px;
+    width: 400px;
+    border-radius:7px;
+    cursor:pointer;
     object-fit: cover;
-    height: 250px;
+    height: 300px;
   }
   
   .right-text {

@@ -133,7 +133,11 @@ function Register() {
 
               <div className="reg-submit-btn">
 
-                <button type="submit" className="btn-reg">Submit</button>
+                <Link to="/login">
+
+                    <button type="submit" className="btn-reg">Submit</button> 
+                    
+                </Link> 
                 
               </div>
 
@@ -151,6 +155,7 @@ function Register() {
             </div>
 
           </form>
+
 
           <div className="reg-farmer">
             <div className="inner-reg">
