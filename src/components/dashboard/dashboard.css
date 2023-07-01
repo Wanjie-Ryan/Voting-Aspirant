@@ -1,0 +1,67 @@
+.dashboard {
+    height: 70vh;
+    width: 100%;
+  
+  
+  .dashboard__container {
+    margin-top: 150px;
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+  }
+  
+  .orders {
+    width: 45%;
+    height: 50vh;
+    background-image: url("../../assets/yourvoters.jpg");
+    background-size: cover;
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5); /* Blue box shadow */
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .reports {
+    width: 45%;
+    height: 50vh;
+    background-image: url("../../assets/yourcompetitors.jpg");
+    background-size: cover;
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.5); /* Blue box shadow */
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .orders-title {
+    color: white;
+    font-size: 25px;
+    margin-left: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .lm {
+    position: absolute;
+    top: 320px;
+    left: 430px;
+  }
+  
+  .next-page {
+    background-color: purple;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .next-page:hover {
+    background-color: blueviolet;
+  }
+  
+  .next-page:active {
+    background-color: violet;
+  }
+  }
