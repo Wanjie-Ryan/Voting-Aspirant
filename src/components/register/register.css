@@ -1,0 +1,182 @@
+.registration {
+    height: 110vh;
+    width: 100%;
+    margin-top: 70px;
+  }
+  
+  .set-up-account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .register {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    /* // margin:auto;
+    // background-color: brown; */
+  }
+  
+  .header {
+    margin-bottom: 20px;
+  }
+  
+  .error {
+    color: red;
+  }
+  
+  .header .first-p {
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+  
+  .header .sec-p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  .sec-p .sign-in {
+    color: dodgerblue;
+    font-weight: 600;
+    font-size: 14px;
+    /* // text-shadow: 2px 2px 4px rgba(73, 130, 204, 0.5); */
+  }
+  
+  .fill-form-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .sign-in {
+    color: dodgerblue;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    /* // text-shadow: 2px 2px 4px rgba(73, 130, 204, 0.5); */
+  }
+  
+  input {
+    width: 230px;
+    padding: 8px;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: border-color 0.3s ease-in-out;
+  
+    &:focus {
+      outline: none;
+      border-color: dodgerblue;
+    }
+  }
+  
+  input::placeholder {
+    font-weight: bold;
+  }
+  
+  .reg-submit-btn {
+    width: 250px;
+    /* // background-color: dodgerblue; */
+  }
+  
+  .btn-reg {
+    width: 230px;
+    margin-top: 20px;
+    padding: 10px 16px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  
+    &:hover {
+      background-color: deepskyblue;
+    }
+  }
+  
+  .terms {
+    width: 290px;
+    padding: 12px;
+  }
+  
+  .terms .terms-p {
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+  }
+  
+  .reg-farmer {
+    width: 40%;
+    height: 110vh;
+  }
+  
+  .inner-reg {
+    display: flex;
+    flex-direction: column;
+    background-color: dodgerblue;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .img-farmer-reg {
+    width: 500px;
+    object-fit: cover;
+    height: 250px;
+  }
+  
+  .right-text {
+    margin-top: 20px;
+  }
+  
+  .right-text .tt {
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+     /* line-height: 20px; */
+     /* text-align: center; */
+  }
+  
+  .right-text .st {
+    color: white;
+    margin-top: 10px;
+  }
+  
+  @media screen and (max-width: 1200px) {
+    .fill-form-content {
+      gap: 1rem;
+    }
+  
+    .reg-farmer {
+      width: 48%;
+    }
+  
+    .img-farmer-reg {
+      width: 400px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .register {
+      margin-top: 40px;
+      width: 100%;
+    }
+  
+    .registration {
+      height: 80vh;
+    }
+  
+    .reg-farmer {
+       /* width:30%; */
+      display: none;
+    }
+  
+     /* .img-farmer-reg{
+  
+       width:50px;
+     } */
+  }

@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import './navbar.css'
 import { Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
-import VLogo from '../assets/icon-votes.jpg'
+import VLogo from '../../assets/icon-votes.jpg'
 import { AiOutlineClose } from "react-icons/ai";
 
 
