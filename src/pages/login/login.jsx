@@ -1,9 +1,30 @@
 import React from 'react'
+import Navbar from '../../components/navbar/navbar'
+import Log from '../../components/login/login'
+import Footer from '../../components/footer/Footer'
 
-function login() {
+
+
+function Loginpages() {
+
+
+
   return (
-    <div>login</div>
+
+
+    <>
+
+        <Navbar/>
+        <Log/>
+        <Footer/>
+    
+    
+
+    </>
+
+
+
   )
 }
 
-export default login
+export default Loginpages
