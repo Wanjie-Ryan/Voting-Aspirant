@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import VLogo from '../../assets/icon-votes.jpg'
 import { AiOutlineClose } from "react-icons/ai";
+import {CgProfile} from 'react-icons/cg'
+
+
 
 
 function Navbar() {
@@ -83,6 +86,15 @@ function Navbar() {
                             </Link>
 
                         </p>
+
+                        <div className="profile">
+
+                            <CgProfile className="profile-icon" />
+
+                        </div>
+
+
+
 
                     
                     </div>
