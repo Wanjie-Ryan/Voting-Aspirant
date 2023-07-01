@@ -30,6 +30,8 @@ function Voted() {
     <>
 
 
+        <section className="voters-reports">
+
             <div className="table-container">
 
                 <table className="user-table">
@@ -38,24 +40,18 @@ function Voted() {
 
                     <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>ID</th>
-                    <th>County</th>
-                    <th>Sub-County</th>
+                    <th>Name</th>
+                    <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
                     {users.map((user, index) => (
                     <tr key={index}>
                         <td>{index + 1}</td>
-                        <td>Customer</td>
+                        {/* <td>Customer</td> */}
                         <td>{user.firstName}</td>
                         <td>{user.lastName}</td>
-                        <td>{user.id}</td>
-                        <td>{user.county}</td>
-                        <td>{user.subCounty}</td>
+                        
                     </tr>
                     ))}
                 </tbody>
@@ -63,6 +59,7 @@ function Voted() {
 
             </div>
 
+        </section>
 
     
     </>
