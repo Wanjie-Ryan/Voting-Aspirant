@@ -4,6 +4,8 @@ import {Link} from 'react-router-dom'
 import voterpic from '../../assets/fingers-vote.jpg'
 import {BsFillPersonFill,BsFillTelephoneFill} from 'react-icons/bs'
 import {MdEmail} from 'react-icons/md'
+import {FaPoll,FaSchool} from 'react-icons/fa'
+import {RiLockPasswordFill} from 'react-icons/ri'
 
 
 
@@ -78,39 +80,56 @@ function Register() {
                         required
                         placeholder=" Enter your phone number"
                     />
-                    
+
                 </div>
 
 
+                <div className="name">
 
-              <select>
+                    <FaPoll/>
+                    <select>
 
-                <option value="" disabled selected>Vying Position</option>
-                <option>President</option>
-                <option>Deputy President</option>
-                <option>Treasurer</option>
-                <option>Secretary General</option>
-                <option>Delegate</option>
+                        <option value="" disabled selected>Vying Position</option>
+                        <option>President</option>
+                        <option>Deputy President</option>
+                        <option>Treasurer</option>
+                        <option>Secretary General</option>
+                        <option>Delegate</option>
 
-              </select>
+                    </select>
 
-              <select>
-                
-                <option value="" disabled selected>School You Represent</option>
-                <option>Engineering and Technology</option>
-                <option>Science and Humanities</option>
-                <option>Economics</option>
-                <option>Education</option>
-                <option>Environment, water and Fishery</option>
+                </div>
 
-              </select>
 
-              <input
-                type="password"
-                name="password"
-                required
-                placeholder="password"
-              />
+                <div className="name">
+
+                    <FaSchool/>
+
+                    <select>
+                        
+                        <option value="" disabled selected>School You Represent</option>
+                        <option>Engineering and Technology</option>
+                        <option>Science and Humanities</option>
+                        <option>Economics</option>
+                        <option>Education</option>
+                        <option>Environment, water and Fishery</option>
+
+                    </select>
+
+                </div>
+
+                <div className ='name'>
+
+                    <RiLockPasswordFill/>
+
+                    <input
+                        type="password"
+                        name="password"
+                        required
+                        placeholder="password"
+                    />
+
+                </div>
 
               <div className="reg-submit-btn">
 
