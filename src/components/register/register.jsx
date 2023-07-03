@@ -2,10 +2,12 @@ import React from 'react'
 import './register.css'
 import {Link} from 'react-router-dom'
 import voterpic from '../../assets/fingers-vote.jpg'
-import {BsFillPersonFill,BsFillTelephoneFill} from 'react-icons/bs'
+import {BsFillPersonFill,BsFillTelephoneFill,BsFillImageFill} from 'react-icons/bs'
 import {MdEmail} from 'react-icons/md'
 import {FaPoll,FaSchool} from 'react-icons/fa'
 import {RiLockPasswordFill} from 'react-icons/ri'
+
+
 
 
 
@@ -42,6 +44,18 @@ function Register() {
             </div>
 
             <div className="fill-form-content">
+
+
+                <div className='name'>
+
+
+                  <BsFillImageFill/>
+
+                  <input type ='file' accept='image/*'/>
+
+
+                  
+                </div>
 
                 <div className ='name'>
 
