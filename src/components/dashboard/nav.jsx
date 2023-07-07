@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './navbar.css'
+import './nav.css'
 import { Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import VLogo from '../../assets/icon-votes.jpg'
@@ -81,7 +81,15 @@ function Navbar() {
 
                         </p>
 
-                        
+                        <div className="profile">
+
+                            <Link to ='/userprofile' className="profile-icon"> <CgProfile className="profile-icon" /> </Link>
+
+                        </div>
+
+
+
+
                     
                     </div>
 

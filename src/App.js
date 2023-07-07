@@ -5,7 +5,7 @@ import LogPages from '../src/pages/login/login'
 import DashPages from '../src/pages/dashboard/dashboard'
 import VotesPages from '../src/pages/voted/voted'
 import CompetitorPages from '../src/pages/competitors/compe'
-
+import ProfilePages from '../src/pages/Profile/profile'
 
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
           <Route path="/dashboard" element={<DashPages/>} />
           <Route path="/voted" element={<VotesPages/>} />
           <Route path ='/competitors' element ={<CompetitorPages/>}/>
+          <Route path ='/userprofile' element ={<ProfilePages/>}/>
 
         </Routes>
       

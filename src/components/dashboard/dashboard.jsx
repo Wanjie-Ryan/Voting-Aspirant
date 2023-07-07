@@ -1,7 +1,7 @@
 import React from 'react'
 import './dashboard.css'
 import {Link} from 'react-router-dom'
-
+import Nav from './nav'
 
 
 
@@ -12,6 +12,8 @@ function Dashboard() {
 
 
     <>
+
+        <Nav/>
 
 
         <section className ='dashboard'>
