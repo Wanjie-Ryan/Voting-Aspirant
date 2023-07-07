@@ -25,7 +25,10 @@ function Register() {
 
   const handleImage =(e)=>{
 
-    setImage(e.target.value)
+    const formData = new FormData()
+    formData.append('file', image)
+
+
 
   }
 
@@ -97,7 +100,7 @@ function Register() {
 
                   <BsFillImageFill/>
 
-                  <input type ='file' accept='image/*' name ='image' onChange ={handleImage}/>
+                  <input type ='file' accept='image/*' name ='image' onChange = {(e)=>{setImage(e.target.files[0])}}/>
 
 
                   
