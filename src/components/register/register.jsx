@@ -6,14 +6,15 @@ import {BsFillPersonFill,BsFillTelephoneFill,BsFillImageFill} from 'react-icons/
 import {MdEmail} from 'react-icons/md'
 import {FaPoll,FaSchool} from 'react-icons/fa'
 import {RiLockPasswordFill} from 'react-icons/ri'
-
+import axios from 'axios'
 
 
 
 
 function Register() {
 
-
+  const [imageupload, setImageupload] = useState(false)
+  const [error, seterror] = useState('')
   const [image, setImage] = useState()
   const [name, setName] =useState()
   const [email, setEmail] =useState()
@@ -23,12 +24,27 @@ function Register() {
   const [password, setPassword] =useState()
 
 
-  const handleImage =(e)=>{
+  const handleImage = async (e)=>{
 
-    const formData = new FormData()
-    formData.append('file', image)
+    try{
+
+      setImageupload(true)
+      const formData = new FormData()
+      formData.append('file', image)
+      formData.append('upload-preset', 'kjddwm8s')
+
+      const imageData = await axios.post('https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload', formData)
+
+      console.log(imageData)
+      
+    }
+    catch(err){
+
+      console.log(err)
+      setImageupload(false)
 
 
+    }
 
   }
 
