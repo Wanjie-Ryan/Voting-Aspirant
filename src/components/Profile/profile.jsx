@@ -50,6 +50,15 @@ function Profile() {
 
                     </div>
 
+                    <div className="reg-submit-btn">
+
+                        
+                        <button type="submit" className="btn-reg">Update Details</button> 
+                            
+                    
+                     </div>
+
+
 
                 </div>
 
