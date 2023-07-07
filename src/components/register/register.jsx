@@ -23,6 +23,41 @@ function Register() {
   const [password, setPassword] =useState()
 
 
+  const handleImage =(e)=>{
+
+    setImage(e.target.value)
+
+  }
+
+  const handleName =(e)=>{
+
+    setName(e.target.value)
+  }
+
+  const handleEmail =(e)=>{
+
+    setEmail(e.target.value)
+  }
+
+  const handleContact=(e)=>{
+
+    setContact(e.target.value)
+  }
+
+  const handlePosition =(e)=>{
+
+    setPosition(e.target.value)
+  }
+
+  const handleRep =(e)=>{
+
+    setRepresent(e.target.value)
+  }
+
+  const handlePwd =(e)=>{
+
+    setPassword(e.target.value)
+  }
 
 
   return (
@@ -62,7 +97,7 @@ function Register() {
 
                   <BsFillImageFill/>
 
-                  <input type ='file' accept='image/*'/>
+                  <input type ='file' accept='image/*' name ='image' onChange ={handleImage}/>
 
 
                   
@@ -74,9 +109,10 @@ function Register() {
 
                     <input
                         type="text"
-                        name="Name"
+                        name="name"
                         required
                         placeholder="Enter Your name"
+                        onChange ={handleName}
                     />
 
                 </div>
@@ -89,6 +125,7 @@ function Register() {
                     <input
                         type="text"
                         name="email"
+                        onChange ={handleEmail}
                         required
                         placeholder="Enter your Email"
                     />
@@ -101,7 +138,8 @@ function Register() {
 
                     <input
                         type="tel"
-                        name="phoneNumber"
+                        name="contact"
+                        onChange={handleContact}
                         required
                         placeholder=" Enter your phone number"
                     />
@@ -112,7 +150,7 @@ function Register() {
                 <div className="name">
 
                     <FaPoll/>
-                    <select>
+                    <select name ='position' onChange ={handlePosition}>
 
                         <option value="" disabled selected>Vying Position</option>
                         <option>President</option>
@@ -130,7 +168,7 @@ function Register() {
 
                     <FaSchool/>
 
-                    <select>
+                    <select name='represent' onChange={handleRep}>
                         
                         <option value="" disabled selected>School You Represent</option>
                         <option>Engineering and Technology</option>
@@ -152,6 +190,7 @@ function Register() {
                         name="password"
                         required
                         placeholder="password"
+                        onChange={handlePwd}
                     />
 
                 </div>
