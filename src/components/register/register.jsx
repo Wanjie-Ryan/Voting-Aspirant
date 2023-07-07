@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './register.css'
 import {Link} from 'react-router-dom'
 import voterpic from '../../assets/fingers-vote.jpg'
@@ -12,6 +12,17 @@ import {RiLockPasswordFill} from 'react-icons/ri'
 
 
 function Register() {
+
+
+  const [image, setImage] = useState()
+  const [name, setName] =useState()
+  const [email, setEmail] =useState()
+  const [contact, setContact] =useState()
+  const [position, setPosition] =useState()
+  const [represent, setRepresent] =useState()
+  const [password, setPassword] =useState()
+
+
 
 
   return (
