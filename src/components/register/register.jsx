@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './register.css'
 import {Link} from 'react-router-dom'
 import voterpic from '../../assets/fingers-vote.jpg'
@@ -7,13 +7,16 @@ import {MdEmail} from 'react-icons/md'
 import {FaPoll,FaSchool} from 'react-icons/fa'
 import {RiLockPasswordFill} from 'react-icons/ri'
 import axios from 'axios'
-
-
+import {RegContext} from '../../context/Regcontext'
+import swal from 'sweetalert'
+import {useNavigate} from 'react-router-dom'
 
 
 function Register() {
 
   const [imageupload, setImageupload] = useState(false)
+  const [succmsg, setsuccmsg] = useState('')
+  const [load, setload] = useState(false)
   const [errormsg, seterrormsg] = useState('')
   const [image, setImage] = useState()
   const [name, setName] =useState()
@@ -22,6 +25,9 @@ function Register() {
   const [position, setPosition] =useState()
   const [represent, setRepresent] =useState()
   const [password, setPassword] =useState()
+  
+  const {aspirant, loading, error, dispatch} = useContext(RegContext)
+  const navigate = useNavigate()
 
 
   const handleImage = async (e)=>{
@@ -79,10 +85,15 @@ function Register() {
   }
 
 
-  const handleSubmit = async()=>{
+  const handleSubmit = async(e)=>{
+
+    e.preventDefault()
+
+    dispatch({type:'regStart'})
 
 
     try{
+
 
 
 
@@ -110,7 +121,7 @@ function Register() {
 
         <div className="set-up-account">
 
-          <form action="" className="register">
+          <form action="" className="register" onSubmit={handleSubmit}>
 
             <div className="header">
 
