@@ -119,7 +119,7 @@ function Register() {
         title:'Registration Successful',
         text:regData.data.msg,
         icon:'success',
-        button:'Go To Dashboard'
+        button:'Go To Login'
       }).then(()=>{
 
         setTimeout(()=>{
