@@ -124,7 +124,7 @@ function Register() {
 
         setTimeout(()=>{
 
-          navigate('/dashboard')
+          navigate('/login')
 
         },2000)
 
