@@ -1,5 +1,5 @@
-import React,{useEffect, createContext, UseState, useContext} from 'react'
-import {useCookies} from 'react-cookies'
+import React,{useEffect, createContext, useReducer, UseState, useContext} from 'react'
+import {useCookies} from 'react-cookie'
 
 
 
@@ -20,7 +20,7 @@ const regReducer =(state, action)=>{
         case 'regStart':
 
         return{
-            
+
             aspirant:null,
             loading:true,
             error:null
@@ -48,6 +48,32 @@ const regReducer =(state, action)=>{
     }
 
 
+}
+
+
+export const RegContextProvider = ({children})=>{
+
+    const [state, dispatch] = useReducer(regReducer, initialState)
+    const [cookies, setCookie] = useCookies(['aspirant'])
+
+    // the aspirant is stored in a cookie called aspirant using the useCookies
+
+    useEffect(()=>{
+
+        setCookie('aspirant', state.aspirant, {path:'/'})
+
+        //the cookie value is set whenever the aspirant state chnages using the setCookie function from the useCookies
+    },[state.aspirant, setCookie])
+
+    return(
+
+        <RegContext.Provider value ={{aspirant:state.aspirant, loading:state.loading, error:state.error, dispatch}}>
+
+            {children}
+
+        </RegContext.Provider>
+        
+    )
 }
 
 
