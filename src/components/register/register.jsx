@@ -8,7 +8,7 @@ import {FaPoll,FaSchool} from 'react-icons/fa'
 import {RiLockPasswordFill} from 'react-icons/ri'
 import axios from 'axios'
 import {RegContext} from '../../context/Regcontext'
-import swal from 'sweetalert'
+import sweetAlert from 'sweetalert2'
 import {useNavigate} from 'react-router-dom'
 
 
@@ -29,30 +29,6 @@ function Register() {
   const {aspirant, loading, error, dispatch} = useContext(RegContext)
   const navigate = useNavigate()
 
-
-  const handleImage = async (e)=>{
-
-    try{
-
-      setImageupload(true)
-      const formData = new FormData()
-      formData.append('file', image)
-      formData.append('upload-preset', 'kjddwm8s')
-
-      const imageData = await axios.post('https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload', formData)
-
-      console.log(imageData)
-      
-    }
-    catch(err){
-
-      console.log(err)
-      setImageupload(false)
-
-
-    }
-
-  }
 
   const handleName =(e)=>{
 
@@ -89,10 +65,45 @@ function Register() {
 
     e.preventDefault()
 
+    if(!image || !name || !email || !contact ||!position || !represent ||!password){
+
+      sweetAlert.fire({
+
+        icon:'error',
+        title:'oops...',
+        text:'Please Enter all Details of the Submission form'
+      })
+
+      return
+
+    }
+
     dispatch({type:'regStart'})
 
 
     try{
+
+      const formData = new FormData()
+      formData.append('file', image)
+      formData.append('upload-preset', 'kjddwm8s')
+
+      const imageData = await axios.post('https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload', formData)
+
+      console.log(imageData)
+
+      const submissionData = {
+
+        image:imageData.data.url,
+        name:name,
+        email:email,
+        phoneNumber:contact,
+        Position:position,
+        Represent:represent,
+        Password:password
+       
+      }
+
+      const regData = await axios.post('', submissionData)
 
 
 
@@ -146,7 +157,7 @@ function Register() {
 
                   <BsFillImageFill/>
 
-                  <input type ='file' accept='image/*' name ='image' onChange = {(e)=>{setImage(e.target.files[0])}}/>
+                  <input type ='file' accept='image/*' name ='image' value ={image} onChange = {(e)=>{setImage(e.target.files[0])}}/>
 
 
                   
@@ -161,6 +172,7 @@ function Register() {
                         name="name"
                         required
                         placeholder="Enter Your name"
+                        value ={name}
                         onChange ={handleName}
                     />
 
@@ -175,6 +187,7 @@ function Register() {
                         type="text"
                         name="email"
                         onChange ={handleEmail}
+                        value ={email}
                         required
                         placeholder="Enter your Email"
                     />
@@ -189,6 +202,7 @@ function Register() {
                         type="tel"
                         name="contact"
                         onChange={handleContact}
+                        value ={contact}
                         required
                         placeholder=" Enter your phone number"
                     />
@@ -199,7 +213,7 @@ function Register() {
                 <div className="name">
 
                     <FaPoll/>
-                    <select name ='position' onChange ={handlePosition}>
+                    <select name ='position' onChange ={handlePosition} value ={position}>
 
                         <option value="" disabled selected>Vying Position</option>
                         <option>President</option>
@@ -217,7 +231,7 @@ function Register() {
 
                     <FaSchool/>
 
-                    <select name='represent' onChange={handleRep}>
+                    <select name='represent' onChange={handleRep} value ={represent}>
                         
                         <option value="" disabled selected>School You Represent</option>
                         <option>Engineering and Technology</option>
@@ -240,17 +254,18 @@ function Register() {
                         required
                         placeholder="password"
                         onChange={handlePwd}
+                        value ={password}
                     />
 
                 </div>
 
               <div className="reg-submit-btn">
 
-                <Link to="/login">
+                {/* <Link to="/login"> */}
 
                     <button type="submit" className="btn-reg">Submit</button> 
                     
-                </Link> 
+                {/* </Link>  */}
                 
               </div>
 
