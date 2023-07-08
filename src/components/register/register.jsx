@@ -14,7 +14,7 @@ import axios from 'axios'
 function Register() {
 
   const [imageupload, setImageupload] = useState(false)
-  const [error, seterror] = useState('')
+  const [errormsg, seterrormsg] = useState('')
   const [image, setImage] = useState()
   const [name, setName] =useState()
   const [email, setEmail] =useState()
@@ -76,6 +76,25 @@ function Register() {
   const handlePwd =(e)=>{
 
     setPassword(e.target.value)
+  }
+
+
+  const handleSubmit = async()=>{
+
+
+    try{
+
+
+
+    }
+
+    catch(err){
+
+      console.log(err)
+
+    }
+
+
   }
 
 
