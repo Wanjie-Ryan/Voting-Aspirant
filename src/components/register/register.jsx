@@ -10,11 +10,14 @@ import axios from 'axios'
 import {RegContext} from '../../context/Regcontext'
 import sweetAlert from 'sweetalert2'
 import {useNavigate} from 'react-router-dom'
+import {TbFidgetSpinner} from 'react-icons/tb'
+
 
 
 function Register() {
 
-  const [imageupload, setImageupload] = useState(false)
+  // const [imageupload, setImageupload] = useState(false)
+
   const [succmsg, setsuccmsg] = useState('')
   const [load, setload] = useState(false)
   const [errormsg, seterrormsg] = useState('')
@@ -78,6 +81,8 @@ function Register() {
 
     }
 
+    setload(true)
+
     dispatch({type:'regStart'})
 
 
@@ -89,11 +94,11 @@ function Register() {
 
       const imageData = await axios.post('https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload', formData)
 
-      console.log(imageData)
+      // console.log(imageData)
 
       const submissionData = {
 
-        image:imageData.data.url,
+        image:imageData.data.secure_url,
         name:name,
         email:email,
         phoneNumber:contact,
@@ -105,18 +110,42 @@ function Register() {
 
       const regData = await axios.post('http://localhost:3007/api/aspirant/auth/register', submissionData)
 
-      console.log(regData)
+      // console.log(regData)
 
-      // dispatch({type:'regComplete', payload:regData.data})
+      dispatch({type:'regComplete', payload:regData.data})
 
+      sweetAlert.fire({
 
+        title:'Registration Successful',
+        text:regData.data.msg,
+        icon:'success',
+        button:'Go To Dashboard'
+      }).then(()=>{
+
+        setTimeout(()=>{
+
+          navigate('/dashboard')
+
+        },2000)
+
+      })
+
+      setload(false)
 
 
     }
 
     catch(err){
 
+      dispatch({type:'regFail', payload:err})
       console.log(err)
+      setTimeout(()=>{
+
+        seterrormsg('There seems to be an error while logging in, Refresh The Page and try Again')
+
+      }, 2000)
+
+      setload(false)
 
     }
 
@@ -267,7 +296,14 @@ function Register() {
 
                 {/* <Link to="/login"> */}
 
-                    <button type="submit" className="btn-reg">Submit</button> 
+                    {errormsg ? <p className='error-msg'>{errormsg}</p> : (
+
+
+                      
+                      <button type="submit" className="btn-reg" disabled ={load}> {load? <TbFidgetSpinner className='spinner-loader'/> :'Submit'} </button>
+                      
+                      )
+                    } 
                     
                 {/* </Link>  */}
                 

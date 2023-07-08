@@ -183,3 +183,26 @@
        width:50px;
      } */
   }
+
+  .error-msg{
+
+    color:red;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .spinner-loader{
+
+    font-size:25px;
+    animation:spin 1s linear infinite;
+    color:purple;
+
+  }
+
+  @keyframes spin{
+
+    0%{transform: rotate(0deg);}
+  
+    100%{transform: rotate(360deg);}
+  
+  }
