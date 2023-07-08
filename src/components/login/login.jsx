@@ -1,13 +1,28 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './login.css'
 import {MdEmail} from 'react-icons/md'
 import {Link} from 'react-router-dom'
 import {RiLockPasswordFill} from 'react-icons/ri'
+import axios from 'axios'
+import {TbFidgetSpinner} from 'react-icons/tb'
 
 
 function Login() {
 
+    const [errmsg, seterrmsg] = useState()
+    const [loading, setloading] = useState(false)
+    const [name, setname] = useState('')
+    const [pwd, setpwd] = useState('')
 
+    const handleName =(e)=>{
+
+        setname(e.target.value)
+    }
+
+    const handlePwd =(e)=>{
+
+        setpwd(e.target.value)
+    }
 
   return (
 
