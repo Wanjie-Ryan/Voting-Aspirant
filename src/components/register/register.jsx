@@ -85,7 +85,7 @@ function Register() {
 
       const formData = new FormData()
       formData.append('file', image)
-      formData.append('upload-preset', 'kjddwm8s')
+      formData.append('upload_preset', 'kjddwm8s')
 
       const imageData = await axios.post('https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload', formData)
 
@@ -103,7 +103,11 @@ function Register() {
        
       }
 
-      const regData = await axios.post('', submissionData)
+      const regData = await axios.post('http://localhost:3007/api/aspirant/auth/register', submissionData)
+
+      console.log(regData)
+
+      // dispatch({type:'regComplete', payload:regData.data})
 
 
 
@@ -157,7 +161,7 @@ function Register() {
 
                   <BsFillImageFill/>
 
-                  <input type ='file' accept='image/*' name ='image' value ={image} onChange = {(e)=>{setImage(e.target.files[0])}}/>
+                  <input type ='file' accept='image/*' name ='image'  onChange = {(e)=>{setImage(e.target.files[0])}}/>
 
 
                   
