@@ -67,15 +67,18 @@ function Login() {
                 text:LoginData.data.msg,
                 icon:'success',
                 button:'Go To Dashboard'
-                
+
             }).then(()=>{
 
                 setTimeout(()=>{
 
                     navigate('/dashboard')
+
                 },2000)
 
             })
+
+            console.log(document.cookie)
 
             setloading(false)
 
@@ -85,7 +88,11 @@ function Login() {
 
         catch(err){
 
-            seterrmsg('There has been issue, please refresh and Try again')
+            setTimeout(()=>{
+
+                seterrmsg('There has been issue, please refresh and Try again')
+
+            },1000)
             console.log(err)
             setloading(false)
 

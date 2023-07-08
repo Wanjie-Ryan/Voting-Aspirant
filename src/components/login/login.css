@@ -26,7 +26,7 @@ input{
 
     &:focus {
       outline: none;
-      border-color: dodgerblue;
+      border-color: purple;
     }
     
 
@@ -36,7 +36,7 @@ input{
 
          margin-top: 20px;
           padding: 10px 16px;
-          background-color: #0C8CE9;
+          background-color: purple;
           color: white;
           border: none;
           border-radius: 3px;
@@ -44,7 +44,7 @@ input{
           transition: background-color 0.3s ease-in-out;
       
           &:hover {
-            background-color: #0e97fc;
+            background-color: violet;
           }
 
 }
