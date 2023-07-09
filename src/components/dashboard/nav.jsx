@@ -19,6 +19,12 @@ function Navbar() {
 
     // const loginName = aspirant.aspirantnew.name
 
+    // const LogDetails = JSON.parse(localStorage.getItem('AspirantDetails'))
+
+    // console.log(LogDetails)
+
+    // const name = LogDetails.name
+
 
   return (
 
@@ -69,9 +75,9 @@ function Navbar() {
 
                     <div className="flex-direction-left">
 
-                        {/* {loginName ? (
+                        {/* {name ? (
 
-                            <p className="name">Hello,{loginName} </p>
+                            <p className="name">Hello,{name} </p>
                         ):(
                             <p className ='name'> Guest</p>
                         )} */}

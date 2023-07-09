@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import './dashboard.css'
 import {Link, useNavigate} from 'react-router-dom'
-import Nav from './nav'
+// import Nav from './nav'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 
@@ -61,7 +61,7 @@ function Dashboard() {
 
     <>
 
-        <Nav/>
+        {/* <Nav/> */}
 
         <section className ='dashboard'>
 

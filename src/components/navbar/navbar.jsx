@@ -14,6 +14,12 @@ function Navbar() {
     const [shownav, setshownav] = useState(false);
 
     // const {aspirant} = useContext(Logcontext)
+
+    const LogDetails = JSON.parse(localStorage.getItem('AspirantDetails'))
+
+    console.log(LogDetails)
+
+    const name = LogDetails?.name || ' Guest'
  
 
 
@@ -66,6 +72,12 @@ function Navbar() {
 
                     <div className="flex-direction-left">
 
+                         {name ? (
+
+                            <p className="name">Hello {name} </p>
+                        ):(
+                            <p className ='name'> Guest</p>
+                        )}
                         
 
                         <p>
@@ -83,6 +95,12 @@ function Navbar() {
                             </Link>
 
                         </p>
+
+                        <div className="profile">
+
+                            <Link to ='/userprofile' className="profile-icon"> <CgProfile className="profile-icon" /> </Link>
+
+                        </div>
 
                         
                     
