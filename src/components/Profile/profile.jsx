@@ -6,6 +6,8 @@ import {Link, useNavigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import axios from 'axios'
 import {Image} from 'cloudinary-react'
+import sweetAlert from 'sweetalert2'
+import {TbFidgetSpinner} from 'react-icons/tb'
 
 
 function Profile() {
@@ -54,12 +56,39 @@ function Profile() {
 
     // console.log(imageString)
 
+    const [loading, setloading] = useState(false)
+    const [errmsg, seterrmsg] = useState('')
     const [image, setimage] = useState('')
     const [name, setname] = useState('')
 
     const handleName = (e)=>{
 
         setname(e.target.value)
+    }
+
+    const updateDetails = async (e)=>{
+
+        e.preventDefault()
+
+        try{
+
+
+
+
+        }
+
+        catch(err){
+
+            setTimeout(()=>{
+
+                seterrmsg('There seems to be an error, Please refresh the page and Try again')
+
+            },2000)
+            console.log(err)
+            setloading(false)
+
+
+        }
     }
 
     
