@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext, createContext, useReducer} from 'react'
-import {useCookies} from 'react-cookie'
+// import {useCookies} from 'react-cookie'
 
 
 
@@ -57,13 +57,13 @@ export const LogcontextProvider = ({children})=>{
 
     const [state, dispatch] = useReducer(logReducer, initialState)
 
-    const [cookies, setCookie]= useCookies(['AspirantToken'])
+    // const [cookies, setCookie]= useCookies(['AspirantToken'])
 
-    useEffect(()=>{
+    // useEffect(()=>{
 
-        setCookie('AspirantToken', state.aspirant?.token, { secure: true, httpOnly: true, maxAge: 24 * 60 * 60 })
+    //     setCookie('AspirantToken', state.aspirant?.token, { secure: true, httpOnly: true, maxAge: 24 * 60 * 60 })
 
-    }, [state.aspirant?.token, setCookie])
+    // }, [state.aspirant?.token, setCookie])
 
     return(
 

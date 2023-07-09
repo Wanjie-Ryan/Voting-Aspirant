@@ -67,7 +67,18 @@ function Login() {
 
             const LoginData = await axios.post('http://localhost:3007/api/aspirant/auth/login', loginData)
             
-            console.log(LoginData)
+            // console.log(LoginData)
+
+            const details = {
+
+                id:LoginData.data.aspirantnew._id,
+                image:LoginData.data.aspirantnew.image,
+                name:LoginData.data.aspirantnew.name
+            }
+
+            // console.log(details)
+
+            localStorage.setItem('AspirantDetails',  JSON.stringify(details))
 
             Cookies.set('AspirantToken', LoginData.headers.aspiranttoken)
 
@@ -93,7 +104,7 @@ function Login() {
 
             })
 
-            console.log(document.cookie)
+            // console.log(document.cookie)
 
             setload(false)
 
@@ -110,7 +121,7 @@ function Login() {
                 seterrmsg('There has been issue, please refresh and Try again')
 
             },1000)
-            console.log(err)
+            // console.log(err)
             setload(false)
 
         }
