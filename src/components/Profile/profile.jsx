@@ -5,6 +5,8 @@ import {BsFillPersonFill, BsFillImageFill} from 'react-icons/bs'
 import {Link, useNavigate} from 'react-router-dom'
 import Cookies from 'js-cookie'
 import axios from 'axios'
+import {Image} from 'cloudinary-react'
+
 
 function Profile() {
 
@@ -44,6 +46,14 @@ function Profile() {
 
     }, [navigate])
 
+    const storageData = JSON.parse(localStorage.getItem('AspirantDetails'))
+
+    // console.log(storageData)
+
+    const imageString = storageData.image
+
+    // console.log(imageString)
+
     
 
 
@@ -59,7 +69,9 @@ function Profile() {
 
                 <div className="profile-pic">
 
-                    <img src= {aspsimg} className ='prof-pic-user' alt ='profile'/>
+                    {/* <img src= {aspsimg} className ='prof-pic-user' alt ='profile'/> */}
+
+                    <Image cloudName ='https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload' publicId ={imageString} className ='prof-pic-user' alt ='profile'/>
 
 
                 </div>
