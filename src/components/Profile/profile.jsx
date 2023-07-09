@@ -70,10 +70,56 @@ function Profile() {
 
         e.preventDefault()
 
+        setloading(true)
+
         try{
 
+            const aspirantId = JSON.parse(localStorage.getItem('AspirantDetails'))
+
+            console.log(aspirantId)
+
+            const id = aspirantId.id
+
+            const formData = new FormData()
+            formData.append('file', image)
+            formData.append('upload_preset', 'kjddwm8s')
+
+            const imageData = await axios.post('https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload', formData)
+
+            console.log(imageData)
+
+            const updateData ={
+
+                image:imageData.data.secure_url,
+                name:name
+            }
+
+            const dataUpdated = await axios.patch(`http://localhost:3007/api/aspirant/updateaspirant/${id}`, updateData)
+
+            console.log(dataUpdated)
+
+            const details={
+
+                id:dataUpdated.data.updateaspirant._id,
+                image:dataUpdated.data.updateaspirant.image,
+                name:dataUpdated.data.updateaspirant.name
+            }
+            
+            localStorage.removeItem('AspirantDetails')
+
+            localStorage.setItem('AspirantDetails', JSON.stringify(details))
+
+            sweetAlert.fire({
+
+                title:'Details updated Successfully',
+                text:dataUpdated.data.msg,
+                icon:'success',
+                
+              })
 
 
+              setloading(false)
+        
 
         }
 
@@ -113,7 +159,7 @@ function Profile() {
 
                 </div>
 
-                <div className="updating-details">
+                <form className="updating-details" onSubmit ={updateDetails}>
 
                     <div className ='update-img'>
 
@@ -142,15 +188,19 @@ function Profile() {
 
                     <div className="reg-submit-btn">
 
-                        
-                        <button type="submit" className="btn-reg">Update Details</button> 
+                        {errmsg ? <p className ='error-msg'>{errmsg}</p>:(
+
+
                             
+                            <button type="submit" className="btn-reg" disabled ={loading}>{loading ? <TbFidgetSpinner className ='spinner-loader'/>: 'Update Details'}</button> 
+                            
+                        )}
                     
                      </div>
 
 
 
-                </div>
+                </form>
 
 
 
