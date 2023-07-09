@@ -5,13 +5,16 @@ import { BiMenu } from "react-icons/bi";
 import VLogo from '../../assets/icon-votes.jpg'
 import { AiOutlineClose } from "react-icons/ai";
 import {CgProfile} from 'react-icons/cg'
-
+// import {Logcontext} from '../../context/Logcontext'
 
 
 
 function Navbar() {
 
     const [shownav, setshownav] = useState(false);
+
+    // const {aspirant} = useContext(Logcontext)
+ 
 
 
   return (

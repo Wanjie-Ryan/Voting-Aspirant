@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './login.css'
 import {MdEmail} from 'react-icons/md'
 import {Link} from 'react-router-dom'
@@ -7,14 +7,18 @@ import axios from 'axios'
 import {TbFidgetSpinner} from 'react-icons/tb'
 import { useNavigate } from 'react-router-dom'
 import sweetAlert from 'sweetalert2'
+import {Logcontext} from '../../context/Logcontext.jsx'
+import Cookies from 'js-cookie'
 
 
 function Login() {
 
     const [errmsg, seterrmsg] = useState()
-    const [loading, setloading] = useState(false)
+    const [load, setload] = useState(false)
     const [email, setemail] = useState('')
     const [pwd, setpwd] = useState('')
+
+    const {aspirant, loading, error, dispatch} = useContext(Logcontext)
     
     const navigate = useNavigate()
 
@@ -46,7 +50,11 @@ function Login() {
 
         }
 
-        setloading(true)
+
+
+        setload(true)
+
+        dispatch({type:'logStart'})
 
         try{
 
@@ -58,8 +66,15 @@ function Login() {
 
 
             const LoginData = await axios.post('http://localhost:3007/api/aspirant/auth/login', loginData)
-
+            
             console.log(LoginData)
+
+            Cookies.set('AspirantToken', LoginData.headers.aspiranttoken)
+
+
+            // const passData = LoginData.data.aspirantnew
+
+            dispatch({type:'logComplete', payload:LoginData.data})
 
             sweetAlert.fire({
 
@@ -80,7 +95,7 @@ function Login() {
 
             console.log(document.cookie)
 
-            setloading(false)
+            setload(false)
 
 
 
@@ -88,13 +103,15 @@ function Login() {
 
         catch(err){
 
+            dispatch({type:'logFail', payload:err})
+
             setTimeout(()=>{
 
                 seterrmsg('There has been issue, please refresh and Try again')
 
             },1000)
             console.log(err)
-            setloading(false)
+            setload(false)
 
         }
     }
@@ -152,7 +169,7 @@ function Login() {
 
 
                         
-                        <button type='submit'  disabled={loading} className="sign-in-btn">{loading ? <TbFidgetSpinner className='spinner-loader'/> : 'Submit'}</button>
+                        <button type='submit'  disabled={aspirant && aspirant.token} className="sign-in-btn">{aspirant && aspirant.token ? <TbFidgetSpinner className='spinner-loader'/> : 'Submit'}</button>
                         
                         )
                     }

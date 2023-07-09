@@ -1,17 +1,23 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './nav.css'
 import { Link } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import VLogo from '../../assets/icon-votes.jpg'
 import { AiOutlineClose } from "react-icons/ai";
 import {CgProfile} from 'react-icons/cg'
-
+import {Logcontext} from '../../context/Logcontext'
 
 
 
 function Navbar() {
 
     const [shownav, setshownav] = useState(false);
+
+    // const {aspirant} = useContext(Logcontext)
+
+    // console.log(aspirant)
+
+    // const loginName = aspirant.aspirantnew.name
 
 
   return (
@@ -63,6 +69,12 @@ function Navbar() {
 
                     <div className="flex-direction-left">
 
+                        {/* {loginName ? (
+
+                            <p className="name">Hello,{loginName} </p>
+                        ):(
+                            <p className ='name'> Guest</p>
+                        )} */}
                         
 
                         <p>

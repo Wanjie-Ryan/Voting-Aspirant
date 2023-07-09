@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {RegContextProvider} from '../src/context/Regcontext'
+import {LogcontextProvider} from '../src/context/Logcontext'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,7 +13,11 @@ root.render(
 
     <RegContextProvider>
 
-      <App />
+      <LogcontextProvider>
+
+        <App />
+
+      </LogcontextProvider>
 
     </RegContextProvider>
 
