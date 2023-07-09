@@ -54,6 +54,14 @@ function Profile() {
 
     // console.log(imageString)
 
+    const [image, setimage] = useState('')
+    const [name, setname] = useState('')
+
+    const handleName = (e)=>{
+
+        setname(e.target.value)
+    }
+
     
 
 
@@ -83,7 +91,7 @@ function Profile() {
 
                         <BsFillImageFill/>
 
-                        <input type ='file' accept='image/*'/>
+                        <input type ='file' name ='image' onChange ={(e)=>{setimage(e.target.files[0])}} accept='image/*'/>
 
 
                     </div>
@@ -94,7 +102,9 @@ function Profile() {
 
                         <input
                             type="text"
-                            name="Name"
+                            name="name"
+                            value ={name}
+                            onChange ={handleName}
                             required
                             placeholder="Enter Your name"
                         />
