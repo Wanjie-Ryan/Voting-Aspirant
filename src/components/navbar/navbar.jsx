@@ -7,12 +7,19 @@ import { AiOutlineClose } from "react-icons/ai";
 import {CgProfile} from 'react-icons/cg'
 // import {Logcontext} from '../../context/Logcontext'
 import {FiLogOut} from 'react-icons/fi'
-
+import Cookies from 'js-cookie'
 
 
 function Navbar() {
 
     const [shownav, setshownav] = useState(false);
+
+    const [profile, setprofile] = useState(false)
+
+    const showProfile =()=>{
+
+        setprofile(!profile)
+    }
 
     // const {aspirant} = useContext(Logcontext)
 
@@ -21,6 +28,8 @@ function Navbar() {
     console.log(LogDetails)
 
     const name = LogDetails?.name || ' Guest'
+
+    
  
 
 
@@ -99,17 +108,23 @@ function Navbar() {
 
                         <div className="profile">
 
-                            <p> <CgProfile className="profile-icon-main" /> </p>
+                            <p> <CgProfile className="profile-icon-main" onClick ={showProfile} /> </p>
 
-                            <div className="profile-content">
+                            {profile &&(
 
-                                <Link to ='/userprofile' className='link-prof prof-prof'>  <p>Edit Profile</p></Link>
+                                
+                                <div className="profile-content">
 
-                                <hr></hr>
+                                    <Link to ='/userprofile' className='link-prof prof-prof'>  <p>Edit Profile</p></Link>
 
-                                <p className='link-prof'>Logout</p>
+                                    <hr></hr>
 
-                            </div>
+                                    <p className='link-prof'>Logout</p>
+
+                                </div>
+
+                                )
+                            }
 
                         </div>
 
