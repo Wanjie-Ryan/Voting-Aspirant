@@ -1,9 +1,44 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import './voted.css'
-
+import Cookies from 'js-cookie'
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 
 function Voted() {
+
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+
+
+    const checkAuth = async()=>{
+
+      if(!Cookies.get().AspirantToken || Cookies.get().AspirantToken === undefined){
+
+        navigate('/login')
+      }
+
+      else{
+
+        const token = Cookies.get().AspirantToken
+        const res = await axios({method:'get', url:'http://localhost:3007/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
+        if (res.data.type !== 'success') {
+
+          // console.log('not logged in (invalid token)')
+
+          navigate('/login')
+
+        }
+
+      }
+
+    }
+
+    checkAuth()
+
+
+  }, [navigate])
 
     const users = [
         {

@@ -24,7 +24,7 @@ function Profile() {
             
             if(!Cookies.get().AspirantToken || Cookies.get().AspirantToken === undefined ){
                 
-                navigate('/')
+                navigate('/login')
             }
 
             else{
@@ -35,7 +35,7 @@ function Profile() {
 
                 if(res.data.type !== 'success'){
 
-                    navigate('/')
+                    navigate('/login')
                 }
 
 
@@ -98,7 +98,7 @@ function Profile() {
 
             const dataUpdated = await axios.patch(`http://localhost:3007/api/aspirant/updateaspirant/${id}`, updateData)
 
-            console.log(dataUpdated)
+            // console.log(dataUpdated)
 
             const details={
 

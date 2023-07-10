@@ -34,7 +34,7 @@ function Dashboard() {
                         console.log('not logged in (token not found)')
                         // setIsLogged(false)
 
-                        navigate('/')
+                        navigate('/login')
                     } 
                     else {
 
@@ -43,7 +43,7 @@ function Dashboard() {
                         if (res.data.type !== 'success') {
                         console.log('not logged in (invalid token)')
 
-                        navigate('/')
+                        navigate('/login')
 
                         // setIsLogged(false)
                         }
