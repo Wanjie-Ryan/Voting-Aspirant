@@ -6,6 +6,7 @@ import VLogo from '../../assets/icon-votes.jpg'
 import { AiOutlineClose } from "react-icons/ai";
 import {CgProfile} from 'react-icons/cg'
 // import {Logcontext} from '../../context/Logcontext'
+import {FiLogOut} from 'react-icons/fi'
 
 
 
@@ -98,7 +99,17 @@ function Navbar() {
 
                         <div className="profile">
 
-                            <Link to ='/userprofile' className="profile-icon"> <CgProfile className="profile-icon" /> </Link>
+                            <p> <CgProfile className="profile-icon-main" /> </p>
+
+                            <div className="profile-content">
+
+                                <Link to ='/userprofile' className='link-prof prof-prof'>  <p>Edit Profile</p></Link>
+
+                                <hr></hr>
+
+                                <p className='link-prof'>Logout</p>
+
+                            </div>
 
                         </div>
 

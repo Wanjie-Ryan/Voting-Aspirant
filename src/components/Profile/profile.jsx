@@ -8,6 +8,8 @@ import axios from 'axios'
 import {Image} from 'cloudinary-react'
 import sweetAlert from 'sweetalert2'
 import {TbFidgetSpinner} from 'react-icons/tb'
+import {FiLogOut} from 'react-icons/fi'
+
 
 
 function Profile() {
@@ -159,6 +161,8 @@ function Profile() {
 
                 </div>
 
+                
+
                 <form className="updating-details" onSubmit ={updateDetails}>
 
                     <div className ='update-img'>
@@ -201,6 +205,10 @@ function Profile() {
 
 
                 </form>
+
+                {/* <div>
+                    <FiLogOut/>
+                </div> */}
 
 
 
