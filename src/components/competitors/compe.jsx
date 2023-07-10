@@ -1,6 +1,8 @@
 import React from 'react'
 import './compe.css'
-
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
+import Cookies from 'js-cookie'
 
 
 function Compe() {

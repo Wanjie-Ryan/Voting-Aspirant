@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './navbar.css'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiMenu } from "react-icons/bi";
 import VLogo from '../../assets/icon-votes.jpg'
 import { AiOutlineClose } from "react-icons/ai";
@@ -22,14 +22,27 @@ function Navbar() {
     }
 
     // const {aspirant} = useContext(Logcontext)
+    const getCookie = Cookies.get('AspirantToken')
 
     const LogDetails = JSON.parse(localStorage.getItem('AspirantDetails'))
 
     console.log(LogDetails)
 
+      
     const name = LogDetails?.name || ' Guest'
 
     
+
+    // console.log(getCookie)
+
+    const navigate = useNavigate()
+
+    const handleLogout =()=>{
+
+        Cookies.remove('AspirantToken')
+
+        navigate('/login')
+    }
  
 
 
@@ -82,7 +95,7 @@ function Navbar() {
 
                     <div className="flex-direction-left">
 
-                         {name ? (
+                         {getCookie && name ? (
 
                             <p className="name">Hello {name} </p>
                         ):(
@@ -119,7 +132,7 @@ function Navbar() {
 
                                     <hr></hr>
 
-                                    <p className='link-prof'>Logout</p>
+                                    <p className='link-prof' onClick ={handleLogout}>Logout</p>
 
                                 </div>
 
