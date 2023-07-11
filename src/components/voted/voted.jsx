@@ -42,19 +42,7 @@ function Voted() {
 
   }, [navigate])
 
-    const users = [
-        {
-
-          firstName: "John",
-          
-        },
-
-        {
-
-          firstName: "John",
-          
-        }
-      ];
+    
 
 
   return (
@@ -72,34 +60,36 @@ function Voted() {
 
                 <table className="user-table">
 
-                <thead>
+                  <thead>
+
+                        <tr>
+
+                        <th>No.</th>
+                        <th>Name</th>
+
+                        </tr>
+                  </thead>
+
+                  <tbody>
 
                     <tr>
 
-                    <th>No.</th>
-                    <th>Name</th>
+                      <td>1</td>
+                      <td>John Doe</td>
 
                     </tr>
-                </thead>
-                <tbody>
 
-                <tr>
+                    <tr>
 
-                  <td>1</td>
-                  <td>John Doe</td>
+                      <td>2</td>
+                      <td>Jane Smith</td>
 
-                </tr>
+                    </tr>
 
-                <tr>
+                      
 
-                  <td>1</td>
-                  <td>Jane Smith</td>
-                  
-                </tr>
+                  </tbody>
 
-                   
-
-                </tbody>
                 </table>
 
             </div>
