@@ -78,7 +78,7 @@ function Profile() {
 
             const aspirantId = JSON.parse(localStorage.getItem('AspirantDetails'))
 
-            console.log(aspirantId)
+            // console.log(aspirantId)
 
             const id = aspirantId.id
 
@@ -88,7 +88,7 @@ function Profile() {
 
             const imageData = await axios.post('https://api.cloudinary.com/v1_1/djgk2k4sw/image/upload', formData)
 
-            console.log(imageData)
+            // console.log(imageData)
 
             const updateData ={
 
@@ -132,7 +132,7 @@ function Profile() {
                 seterrmsg('There seems to be an error, Please refresh the page and Try again')
 
             },2000)
-            console.log(err)
+            // console.log(err)
             setloading(false)
 
 

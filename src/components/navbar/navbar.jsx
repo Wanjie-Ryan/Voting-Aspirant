@@ -26,7 +26,7 @@ function Navbar() {
 
     const LogDetails = JSON.parse(localStorage.getItem('AspirantDetails'))
 
-    console.log(LogDetails)
+    // console.log(LogDetails)
 
       
     const name = LogDetails?.name || ' Guest'

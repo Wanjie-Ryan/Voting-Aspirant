@@ -138,7 +138,7 @@ function Register() {
     catch(err){
 
       dispatch({type:'regFail', payload:err})
-      console.log(err)
+      // console.log(err)
       setTimeout(()=>{
 
         seterrormsg('There seems to be an error while logging in, Refresh The Page and try Again')

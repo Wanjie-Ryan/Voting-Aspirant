@@ -42,18 +42,17 @@ function Voted() {
 
     const users = [
         {
+
           firstName: "John",
-          lastName: "Doe",
           id: "123456",
-          county: "Sample County",
-          subCounty: "Sample Sub-County",
+          
         },
+
         {
+          
           firstName: "John",
-          lastName: "Doe",
           id: "123456",
-          county: "Sample County",
-          subCounty: "Sample Sub-County",
+          
         }
       ];
 

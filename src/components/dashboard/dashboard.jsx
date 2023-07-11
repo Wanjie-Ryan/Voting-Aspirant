@@ -31,7 +31,7 @@ function Dashboard() {
                     if (!Cookies.get().AspirantToken || Cookies.get().AspirantToken === undefined) {
 
                         // No token found, redirect to login page
-                        console.log('not logged in (token not found)')
+                        // console.log('not logged in (token not found)')
                         // setIsLogged(false)
 
                         navigate('/login')
@@ -41,7 +41,7 @@ function Dashboard() {
                         const token = Cookies.get().AspirantToken
                         const res = await axios({method:'get', url:'http://localhost:3007/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
                         if (res.data.type !== 'success') {
-                        console.log('not logged in (invalid token)')
+                        // console.log('not logged in (invalid token)')
 
                         navigate('/login')
 
