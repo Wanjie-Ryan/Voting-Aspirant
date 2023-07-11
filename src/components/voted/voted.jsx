@@ -3,6 +3,8 @@ import './voted.css'
 import Cookies from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
+import {AiFillPrinter} from 'react-icons/ai'
+
 
 
 function Voted() {
@@ -44,14 +46,12 @@ function Voted() {
         {
 
           firstName: "John",
-          id: "123456",
           
         },
 
         {
-          
+
           firstName: "John",
-          id: "123456",
           
         }
       ];
@@ -68,26 +68,37 @@ function Voted() {
 
             <div className="table-container">
 
+                <AiFillPrinter className='print'/>
+
                 <table className="user-table">
 
                 <thead>
 
                     <tr>
-                    <th>#</th>
+
+                    <th>No.</th>
                     <th>Name</th>
-                    <th>Email</th>
+
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user, index) => (
-                    <tr key={index}>
-                        <td>{index + 1}</td>
-                        {/* <td>Customer</td> */}
-                        <td>{user.firstName}</td>
-                        <td>{user.lastName}</td>
-                        
-                    </tr>
-                    ))}
+
+                <tr>
+
+                  <td>1</td>
+                  <td>John Doe</td>
+
+                </tr>
+
+                <tr>
+
+                  <td>1</td>
+                  <td>Jane Smith</td>
+                  
+                </tr>
+
+                   
+
                 </tbody>
                 </table>
 
@@ -103,3 +114,25 @@ function Voted() {
 }
 
 export default Voted
+
+
+
+
+
+
+
+
+
+
+
+
+
+// {users.map((user, index) => (
+                      
+//   <tr key={index}>
+
+//       {/* <td>{index + 1}</td> */}
+//       <td>{user.firstName}</td>
+      
+//   </tr>
+//   ))}
