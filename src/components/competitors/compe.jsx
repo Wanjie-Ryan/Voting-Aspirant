@@ -160,7 +160,7 @@ function Compe() {
                                 <th>Name</th>
                                 <th>Position</th>
                                 <th>Represent</th>
-                                <th>Vote Counts</th>
+                                <th>Vote Count</th>
 
                             </tr>
 
