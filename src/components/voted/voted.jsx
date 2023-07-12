@@ -95,6 +95,48 @@ function Voted() {
 
   },[LSID])
 
+
+  //DOWNLOADING REPORT  
+
+  const handlePrint = () => {
+    // Create the report content
+    const reportContent = allvoters
+      .map((voters, index) => `${index + 1}. ${voters.name}`)
+      .join('\n');
+
+    // Create a temporary element to hold the report content
+    const tempElement = document.createElement('textarea');
+    tempElement.value = reportContent;
+
+    // Append the temporary element to the document body
+    document.body.appendChild(tempElement);
+
+    // Select the content of the temporary element
+    tempElement.select();
+    tempElement.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected content to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary element
+    document.body.removeChild(tempElement);
+
+    // Trigger the download of the report
+    const fileName = 'voters_report.txt';
+    const data = new Blob([reportContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(data);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    link.click();
+
+    // Release the URL object
+    window.URL.revokeObjectURL(url);
+  };
+
+
+
     
 
 
@@ -109,7 +151,7 @@ function Voted() {
 
             <div className="table-container">
 
-                <AiFillPrinter className='print'/>
+                <AiFillPrinter className='print' onClick ={handlePrint}/>
 
                 {loading ? <TbFidgetSpinner className ='spinner-loader'/> :(
 
