@@ -42,6 +42,58 @@ function Voted() {
 
   }, [navigate])
 
+  const [loading, setloading] = useState(false)
+  const [errmsg, seterrmsg] = useState()
+  const [allvoters, setallvoters] = useState()
+
+  const LSItems = JSON.parse(localStorage.getItem('AspirantDetails'))
+
+  // console.log(LSItems)
+
+  const LSID = LSItems.id
+
+  // console.log(LSID)
+
+  useEffect(()=>{
+
+    const getVoted = async()=>{
+
+      try{
+
+        setloading(true)
+
+        const specificVoters = await axios.get(`http://localhost:3007/api/aspirant/allvoters/${LSID}`)
+        // console.log(specificVoters)
+
+        const yesvoted = specificVoters.data.voters
+        // console.log(yesvoted)
+
+        setallvoters(yesvoted)
+
+        // console.log(allvoters)
+
+        setloading(false)
+
+
+      }
+
+      catch(err){
+
+        console.log(err)
+        seterrmsg('There seems to be an error, please refresh the page')
+        setloading(false)
+
+
+      }
+
+
+    }
+
+    getVoted()
+
+
+  },[])
+
     
 
 
@@ -86,11 +138,20 @@ function Voted() {
 
                     </tr>
 
+                    <tr>
+
+                      <td>3</td>
+                      <td>Jane Smith</td>
+
+                    </tr>
+
                       
 
                   </tbody>
 
                 </table>
+
+                {errmsg && <p className ='error'>{errmsg}</p>}
 
             </div>
 
