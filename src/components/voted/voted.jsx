@@ -155,7 +155,7 @@ function Voted() {
 
             <div className="table-container">
 
-                <AiFillPrinter className='print' onClick ={handlePrint}/>
+                <AiFillPrinter className='print' onClick ={handlePrint} title ='print report'/>
 
                 {loading ? <TbFidgetSpinner className ='spinner-loader'/> :(
 

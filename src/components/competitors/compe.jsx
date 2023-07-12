@@ -59,11 +59,11 @@ function Compe() {
 
         const getAllAspirants = await axios.get('http://localhost:3007/api/admin/allaspirants')
         
-        console.log(getAllAspirants)
+        // console.log(getAllAspirants)
 
         const asps = getAllAspirants.data.allaspirants
 
-        console.log(asps)
+        // console.log(asps)
 
         setallAspirants(asps)
 
@@ -72,7 +72,7 @@ function Compe() {
 
       catch(err){
 
-        console.log(err)
+        // console.log(err)
         seterrmsg('There seems to be an error, refresh the page')
         setloading(false)
 
@@ -125,6 +125,7 @@ function Compe() {
 
   };
 
+  
 
 
     
@@ -144,7 +145,7 @@ function Compe() {
 
             <div className="table-container">
 
-                <AiFillPrinter className='print' onClick ={handlePrint}/>
+                <AiFillPrinter className='print' onClick ={handlePrint} title ='print report'/>
 
                 {loading ?  <TbFidgetSpinner className ='spinner-loader'/> :(
 
@@ -160,7 +161,7 @@ function Compe() {
                                 <th>Name</th>
                                 <th>Position</th>
                                 <th>Represent</th>
-                                <th>Vote Count</th>
+                                {/* <th>Vote Count</th> */}
 
                             </tr>
 
@@ -187,7 +188,7 @@ function Compe() {
 
                                   <td>{Aspirants.Represent}</td>
 
-                                  <td>John Doe</td>
+                                  {/* <td>John Doe</td> */}
 
 
 
@@ -206,7 +207,7 @@ function Compe() {
 
                 )}
 
-                {/* {errmsg && <p className ='error'>{errmsg}</p>} */}
+                {errmsg && <p className ='error'>{errmsg}</p>}
 
 
             </div>
