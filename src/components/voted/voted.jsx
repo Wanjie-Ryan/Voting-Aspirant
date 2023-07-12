@@ -99,6 +99,7 @@ function Voted() {
   //DOWNLOADING REPORT  
 
   const handlePrint = () => {
+
     // Create the report content
     const reportContent = allvoters
       .map((voters, index) => `${index + 1}. ${voters.name}`)
@@ -133,6 +134,7 @@ function Voted() {
 
     // Release the URL object
     window.URL.revokeObjectURL(url);
+
   };
 
 
@@ -148,6 +150,8 @@ function Voted() {
 
 
         <section className="voters-reports">
+
+            <p className= 'voter-title'>Those who voted for you are:</p>
 
             <div className="table-container">
 

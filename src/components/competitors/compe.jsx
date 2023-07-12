@@ -4,6 +4,7 @@ import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import Cookies from 'js-cookie'
 import {AiFillPrinter} from 'react-icons/ai'
+import {TbFidgetSpinner} from 'react-icons/tb'
 
 
 
@@ -43,6 +44,16 @@ function Compe() {
 
   }, [navigate])
 
+  const [loading, setloading] = useState(false)
+  const [errmsg, seterrmsg] = useState()
+  const [allAspirants, setallAspirants] = useState([])
+
+  useEffect(()=>{
+
+
+
+  },[])
+
 
     
 
@@ -53,6 +64,9 @@ function Compe() {
     <>
 
         <section className="voters-reports">
+
+            <p className= 'voter-title'>Here are your Competitors:</p>
+
 
             <div className="table-container">
 
@@ -85,14 +99,6 @@ function Compe() {
                           <td>John Doe</td>
 
                         </tr>
-
-                        <tr>
-
-                          <td>2</td>
-                          <td>Jane Smith</td>
-
-                        </tr>
-
 
                     
                     </tbody>
