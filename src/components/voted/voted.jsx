@@ -4,6 +4,7 @@ import Cookies from 'js-cookie'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 import {AiFillPrinter} from 'react-icons/ai'
+import {TbFidgetSpinner} from 'react-icons/tb'
 
 
 
@@ -44,7 +45,7 @@ function Voted() {
 
   const [loading, setloading] = useState(false)
   const [errmsg, seterrmsg] = useState()
-  const [allvoters, setallvoters] = useState()
+  const [allvoters, setallvoters] = useState([])
 
   const LSItems = JSON.parse(localStorage.getItem('AspirantDetails'))
 
@@ -63,7 +64,7 @@ function Voted() {
         setloading(true)
 
         const specificVoters = await axios.get(`http://localhost:3007/api/aspirant/allvoters/${LSID}`)
-        // console.log(specificVoters)
+        console.log(specificVoters)
 
         const yesvoted = specificVoters.data.voters
         // console.log(yesvoted)
@@ -92,7 +93,7 @@ function Voted() {
     getVoted()
 
 
-  },[])
+  },[LSID])
 
     
 
@@ -110,46 +111,48 @@ function Voted() {
 
                 <AiFillPrinter className='print'/>
 
-                <table className="user-table">
+                {loading ? <TbFidgetSpinner className ='spinner-loader'/> :(
 
-                  <thead>
+                  <table className="user-table">
 
-                        <tr>
+                      <thead>
 
-                        <th>No.</th>
-                        <th>Name</th>
+                            <tr>
 
-                        </tr>
-                  </thead>
+                            <th>No.</th>
+                            <th>Name</th>
 
-                  <tbody>
+                            </tr>
+                      </thead>
 
-                    <tr>
+                        {allvoters? allvoters.map((voters, index)=>(
 
-                      <td>1</td>
-                      <td>John Doe</td>
+                          
+                          <tbody key ={voters.id}>
 
-                    </tr>
+                            <tr>
 
-                    <tr>
+                              <td>{index + 1}</td>
+                              <td>{voters.name}</td>
 
-                      <td>2</td>
-                      <td>Jane Smith</td>
+                            </tr>
 
-                    </tr>
+                            
+                              
 
-                    <tr>
+                          </tbody>
 
-                      <td>3</td>
-                      <td>Jane Smith</td>
+                          )):(
 
-                    </tr>
+                            <p>You have no voters</p>
+                          )
 
-                      
+                        }
 
-                  </tbody>
+                  </table>
 
-                </table>
+                )
+                }
 
                 {errmsg && <p className ='error'>{errmsg}</p>}
 
@@ -178,12 +181,3 @@ export default Voted
 
 
 
-// {users.map((user, index) => (
-                      
-//   <tr key={index}>
-
-//       {/* <td>{index + 1}</td> */}
-//       <td>{user.firstName}</td>
-      
-//   </tr>
-//   ))}

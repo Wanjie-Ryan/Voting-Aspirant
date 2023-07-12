@@ -41,4 +41,29 @@
   font-size:20px;
   cursor: pointer;
 }
+
+.error{
+
+  color:red;
+  font-size: 14px;
+  font-weight:bold;
+}
+
+.spinner-loader{
+
+  font-size:50px;
+  animation:spin 1s linear infinite;
+  color:purple;
+  text-align:center;
+
+}
+
+@keyframes spin{
+
+  0%{transform: rotate(0deg);}
+
+  100%{transform: rotate(360deg);}
+
+}
+
   
