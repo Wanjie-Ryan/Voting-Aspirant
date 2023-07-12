@@ -50,6 +50,38 @@ function Compe() {
 
   useEffect(()=>{
 
+    const getCompe = async()=>{
+
+      
+      try{
+        
+        setloading(true)
+
+        const getAllAspirants = await axios.get('http://localhost:3007/api/admin/allaspirants')
+        
+        console.log(getAllAspirants)
+
+        const asps = getAllAspirants.data.allaspirants
+
+        console.log(asps)
+
+        setallAspirants(asps)
+
+        setloading(false)
+      }
+
+      catch(err){
+
+        console.log(err)
+        seterrmsg('There seems to be an error, refresh the page')
+        setloading(false)
+
+      }
+
+    }
+
+    getCompe()
+
 
 
   },[])
@@ -104,6 +136,9 @@ function Compe() {
                     </tbody>
 
                 </table>
+
+                {/* {errmsg && <p className ='error'>{errmsg}</p>} */}
+
 
             </div>
 
