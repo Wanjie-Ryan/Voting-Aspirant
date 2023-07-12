@@ -86,6 +86,48 @@ function Compe() {
 
   },[])
 
+  const handlePrint = () => {
+
+    // Create the report content
+    const reportContent = allAspirants
+      .map((Aspirants, index) => `${index + 1}. ${Aspirants.name} . ${Aspirants.Position}. ${Aspirants.Represent}`)
+      .join('\n');
+
+    // Create a temporary element to hold the report content
+    const tempElement = document.createElement('textarea');
+    tempElement.value = reportContent;
+
+    // Append the temporary element to the document body
+    document.body.appendChild(tempElement);
+
+    // Select the content of the temporary element
+    tempElement.select();
+    tempElement.setSelectionRange(0, 99999); // For mobile devices
+
+    // Copy the selected content to the clipboard
+    document.execCommand('copy');
+
+    // Remove the temporary element
+    document.body.removeChild(tempElement);
+
+    // Trigger the download of the report
+    const fileName = 'Aspirants_report.txt';
+    const data = new Blob([reportContent], { type: 'text/plain' });
+    const url = window.URL.createObjectURL(data);
+
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    link.click();
+
+    // Release the URL object
+    window.URL.revokeObjectURL(url);
+
+  };
+
+
+
+    
 
     
 
@@ -102,40 +144,67 @@ function Compe() {
 
             <div className="table-container">
 
-                <AiFillPrinter className='print'/>
+                <AiFillPrinter className='print' onClick ={handlePrint}/>
+
+                {loading ?  <TbFidgetSpinner className ='spinner-loader'/> :(
+
+                  
+                      <table className="user-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>No.</th>
+                                <th>Image</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Represent</th>
+                                <th>Vote Counts</th>
+
+                            </tr>
+
+                        </thead>
+
+                          {allAspirants? allAspirants.map((Aspirants, index)=>(
+
+                            
+                            <tbody>
+
+                                <tr>
+
+                                  <td>{index +1}</td>
+
+                                  <td>
+                                    
+                                    <img src = {Aspirants.image} className ='img' alt = {Aspirants.name}/>
+                                    
+                                  </td>
+
+                                  <td>{Aspirants.name}</td>
+
+                                  <td>{Aspirants.Position}</td>
+
+                                  <td>{Aspirants.Represent}</td>
+
+                                  <td>John Doe</td>
 
 
-                <table className="user-table">
 
-                    <thead>
+                                </tr>
 
-                        <tr>
+                            
+                            </tbody>
+                          )
+                          ):(
 
-                            <th>No.</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Represent</th>
-                            <th>Vote Counts</th>
+                            <p>There are no other Aspirants</p>
 
-                        </tr>
+                          )}
 
-                    </thead>
+                      </table>
 
-                    <tbody>
-
-                        <tr>
-
-                          <td>1</td>
-
-                          <td>John Doe</td>
-
-                        </tr>
-
-                    
-                    </tbody>
-
-                </table>
+                )}
 
                 {/* {errmsg && <p className ='error'>{errmsg}</p>} */}
 
