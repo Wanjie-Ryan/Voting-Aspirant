@@ -108,7 +108,7 @@ function Register() {
        
       }
 
-      const regData = await axios.post('http://localhost:3007/api/aspirant/auth/register', submissionData)
+      const regData = await axios.post('https://voting-server-7g7j.onrender.com/api/aspirant/auth/register', submissionData)
 
       // console.log(regData)
 

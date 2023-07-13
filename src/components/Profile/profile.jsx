@@ -31,7 +31,7 @@ function Profile() {
 
                 const token = Cookies.get().AspirantToken
 
-                const res = await axios({method:'get', url:'http://localhost:3007/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
+                const res = await axios({method:'get', url:'https://voting-server-7g7j.onrender.com/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
 
                 if(res.data.type !== 'success'){
 
@@ -96,7 +96,7 @@ function Profile() {
                 name:name
             }
 
-            const dataUpdated = await axios.patch(`http://localhost:3007/api/aspirant/updateaspirant/${id}`, updateData)
+            const dataUpdated = await axios.patch(`https://voting-server-7g7j.onrender.com/api/aspirant/updateaspirant/${id}`, updateData)
 
             // console.log(dataUpdated)
 

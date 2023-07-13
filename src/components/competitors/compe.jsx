@@ -26,7 +26,7 @@ function Compe() {
       else{
 
         const token = Cookies.get().AspirantToken
-        const res = await axios({method:'get', url:'http://localhost:3007/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
+        const res = await axios({method:'get', url:'https://voting-server-7g7j.onrender.com/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
         if (res.data.type !== 'success') {
 
           // console.log('not logged in (invalid token)')
@@ -57,7 +57,7 @@ function Compe() {
         
         setloading(true)
 
-        const getAllAspirants = await axios.get('http://localhost:3007/api/admin/allaspirants')
+        const getAllAspirants = await axios.get('https://voting-server-7g7j.onrender.com/api/admin/allaspirants')
         
         // console.log(getAllAspirants)
 

@@ -25,7 +25,7 @@ function Voted() {
       else{
 
         const token = Cookies.get().AspirantToken
-        const res = await axios({method:'get', url:'http://localhost:3007/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
+        const res = await axios({method:'get', url:'https://voting-server-7g7j.onrender.com/api/aspirant/auth/verify', headers:{Authorization:'Bearer ' + token}, data:{}})
         if (res.data.type !== 'success') {
 
           // console.log('not logged in (invalid token)')
@@ -63,8 +63,8 @@ function Voted() {
 
         setloading(true)
 
-        const specificVoters = await axios.get(`http://localhost:3007/api/aspirant/allvoters/${LSID}`)
-        console.log(specificVoters)
+        const specificVoters = await axios.get(`https://voting-server-7g7j.onrender.com/api/aspirant/allvoters/${LSID}`)
+        // console.log(specificVoters)
 
         const yesvoted = specificVoters.data.voters
         // console.log(yesvoted)
@@ -80,7 +80,7 @@ function Voted() {
 
       catch(err){
 
-        console.log(err)
+        // console.log(err)
         seterrmsg('There seems to be an error, please refresh the page')
         setloading(false)
 

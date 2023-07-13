@@ -65,7 +65,7 @@ function Login() {
             }
 
 
-            const LoginData = await axios.post('http://localhost:3007/api/aspirant/auth/login', loginData)
+            const LoginData = await axios.post('https://voting-server-7g7j.onrender.com/api/aspirant/auth/login', loginData)
             
             // console.log(LoginData)
 
