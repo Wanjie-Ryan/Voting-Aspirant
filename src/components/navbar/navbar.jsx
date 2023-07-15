@@ -105,7 +105,7 @@ function Navbar() {
 
                         <p>
 
-                            <Link to="/" className="home">
+                            <Link to ="/" className="home">
                             Aspirant
                             </Link>
 
@@ -225,11 +225,10 @@ function Navbar() {
 
                     <div className="side-details">
 
-                        <p>Admin</p>
+                       
+                        <Link to ='/'><p>Aspirant</p></Link>
                         <hr></hr>
-                        <p>Aspirant</p>
-                        <hr></hr>
-                        <p>Voter</p>
+                        <a href= 'https://sisi-voters-client.vercel.app/'><p>Voter</p></a>
 
 
 

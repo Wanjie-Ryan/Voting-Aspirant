@@ -246,7 +246,7 @@ function Register() {
                 <div className="name">
 
                     <FaPoll/>
-                    <select name ='position' onChange ={handlePosition} value ={position}>
+                    <select name ='position' required onChange ={handlePosition} value ={position}>
 
                         <option value="" disabled selected>Vying Position</option>
                         <option>President</option>
@@ -264,7 +264,7 @@ function Register() {
 
                     <FaSchool/>
 
-                    <select name='represent' onChange={handleRep} value ={represent}>
+                    <select name='represent' required onChange={handleRep} value ={represent}>
                         
                         <option value="" disabled selected>School You Represent</option>
                         <option>Engineering and Technology</option>
