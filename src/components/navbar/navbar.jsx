@@ -105,11 +105,14 @@ function Navbar() {
 
                         <p>
 
-                            <Link to ="/" className="home">
+                            <Link to ="/login" className="home">
                             Aspirant
                             </Link>
 
                         </p>
+
+                        <a href= 'https://sisi-voters-client.vercel.app/' className ='voter-a'><p>Voter</p></a>
+
 
                         <p>
 
